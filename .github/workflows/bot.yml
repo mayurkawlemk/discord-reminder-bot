@@ -1,0 +1,21 @@
+name: Discord Reminder
+
+on:
+  schedule:
+    - cron: '30 4 */2 * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run script
+        run: node index.js
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
