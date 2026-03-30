@@ -1,11 +1,8 @@
 name: Discord Reminder
 
 on:
-  schedule:
-    - cron: '30 4 */2 * *'
   workflow_dispatch:
- 
- 
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
